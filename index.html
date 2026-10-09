@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#101311" />
+    <meta name="description" content="GrowthSelf — disiplin kecil, pertumbuhan besar." />
+    <title>GrowthSelf</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#" data-page="dashboard" aria-label="GrowthSelf beranda">
+          <span class="brand-mark">G</span><span>growth<span class="brand-light">self</span></span>
+        </a>
+        <div class="sidebar-label">RUANG KERJA</div>
+        <nav class="nav-list" aria-label="Navigasi utama">
+          <button class="nav-item active" data-page="dashboard"><span class="nav-icon">◫</span> Dashboard</button>
+          <button class="nav-item" data-page="duties"><span class="nav-icon">◎</span> Rutinitas harian</button>
+          <button class="nav-item" data-page="journal"><span class="nav-icon">▤</span> Catatan journey</button>
+          <button class="nav-item" data-page="projects"><span class="nav-icon">◇</span> Project coding</button>
+          <button class="nav-item" data-page="history"><span class="nav-icon">◷</span> Riwayat & statistik</button>
+        </nav>
+        <div class="sidebar-spacer"></div>
+        <div class="sidebar-quote"><span class="quote-mark">“</span><p>Disiplin adalah memilih apa yang paling kamu inginkan daripada apa yang kamu inginkan sekarang.</p><span class="quote-author">— Abraham Lincoln</span></div>
+        <button class="profile-button" id="profile-button">
+          <span class="avatar" id="avatar">A</span><span class="profile-copy"><strong id="profile-name">Adventurer</strong><small id="profile-rank">Neophyte</small></span><span class="profile-menu">···</span>
+        </button>
+        <button class="export-button" id="export-data">↓ &nbsp;Ekspor data perjalanan</button>
+      </aside>
+
+      <main class="main-area">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Buka navigasi">☰</button>
+          <div class="breadcrumb">PERJALANAN <span>/</span> <strong id="page-breadcrumb">Dashboard</strong></div>
+          <div class="top-actions"><span class="today-label" id="today-label"></span><button class="icon-button" id="theme-toggle" aria-label="Ganti tema" title="Ganti tema">☼</button><button class="top-avatar" id="top-avatar">A</button></div>
+        </header>
+        <div class="content-wrap">
+          <section class="page active" id="page-dashboard">
+            <div class="welcome-row"><div><div class="eyebrow"><span class="live-dot"></span> HARI INI, MILIKMU UNTUK DITAKLUKKAN</div><h1>Selamat datang kembali,<br /><span id="welcome-name">Adventurer</span>.</h1><p class="subtitle">Langkah kecil hari ini adalah versi hebatmu di masa depan.</p></div><div class="date-chip"><span>◷</span><div><small>HARI PERJALANAN</small><strong id="journey-day">01</strong></div></div></div>
+            <div class="hero-card">
+              <div class="hero-top"><div><div class="eyebrow gold">PANGKAT SAAT INI</div><h2 id="hero-rank">Neophyte</h2><p id="rank-caption">Awal dari perjalanan yang besar.</p></div><div class="rank-seal" id="rank-seal"><span>✧</span><small>I</small></div></div>
+              <div class="rank-progress-head"><span id="rank-progress-label">PROGRESS MENUJU SQUIRE</span><strong id="rank-progress-text">0 / 3.000 XP</strong></div><div class="progress-track"><div class="progress-fill" id="rank-progress-fill"></div></div>
+              <div class="hero-bottom"><span><b id="hero-points">0</b> poin saat ini</span><span><b id="hero-earned">0</b> poin terkumpul sepanjang perjalanan</span><span class="rank-next" id="rank-next">Selanjutnya: Squire ↗</span></div>
+            </div>
+            <div class="metric-grid">
+              <article class="metric-card"><div class="metric-top"><span>POIN HARI INI</span><span class="metric-icon gold-icon">✦</span></div><strong id="today-points">0</strong><small id="today-points-note">Belum ada poin hari ini</small></article>
+              <article class="metric-card"><div class="metric-top"><span>STREAK TERBAIK</span><span class="metric-icon green-icon">↗</span></div><strong><span id="streak-count">0</span><em> hari</em></strong><small id="streak-note">Mulai bangun konsistensi hari ini</small></article>
+              <article class="metric-card"><div class="metric-top"><span>KEWAJIBAN HARI INI</span><span class="metric-icon blue-icon">✓</span></div><strong><span id="duties-count">0</span><em> / 5</em></strong><small id="duties-note">Satu langkah lebih dekat</small></article>
+            </div>
+            <div class="section-heading"><div><div class="eyebrow">JANGAN PUTUS RANTAINYA</div><h2>Fokus hari ini</h2></div><button class="text-link" data-page="duties">Lihat semua <span>→</span></button></div>
+            <div class="dashboard-grid"><div class="panel focus-panel"><div class="panel-heading"><div><h3>Kewajiban harian</h3><p>Selesaikan semuanya untuk mendapatkan <b>+33 poin</b>.</p></div><span class="small-counter" id="mini-duty-count">0 / 5</span></div><div id="mini-duty-list" class="mini-duty-list"></div><button class="outline-button full-button" data-page="duties">Buka daftar kewajiban <span>→</span></button></div>
+              <div class="panel entertainment-panel"><div class="panel-heading"><div><h3>Jaga batas hiburan</h3><p>Istirahat secukupnya. Kembali ke tujuanmu.</p></div><span class="shield-icon">⬡</span></div><div class="limit-row"><span>🎮</span><div><strong>Gaming</strong><small>Maksimal 2 jam</small></div><strong id="game-status" class="limit-value">0 / 120 m</strong></div><div class="limit-row"><span>📱</span><div><strong>Short video</strong><small>Maksimal 30 video</small></div><strong id="short-status" class="limit-value">0 / 30</strong></div><div class="limit-row"><span>📖</span><div><strong>Baca komik</strong><small>Target 5 · batas 10 chapter</small></div><strong id="comic-status" class="limit-value">0 / 10</strong></div><button class="text-link limits-link" data-page="duties">Catat penggunaan <span>→</span></button></div></div>
+            <div class="section-heading recent-heading"><div><div class="eyebrow">JEJAK PERJALANAN</div><h2>Aktivitas terbaru</h2></div><button class="text-link" data-page="history">Semua aktivitas <span>→</span></button></div>
+            <div class="panel recent-panel" id="recent-activity"></div>
+          </section>
+
+          <section class="page" id="page-duties">
+            <div class="page-intro"><div class="eyebrow">KONSISTENSI MENGALAHKAN MOTIVASI</div><h1>Rutinitas harian</h1><p class="subtitle">Tuntaskan lima kewajiban. Setiap check-in membutuhkan bukti singkat dari dirimu.</p></div>
+            <div class="score-callout"><span class="score-star">✦</span><div><strong>Selesaikan semua kewajiban untuk +33 poin.</strong><p>Catatan journey dua halaman penuh yang lolos estimasi tulisan manusia memberi +33 poin tambahan.</p></div><span class="score-badge" id="duty-score-badge">0 / 5</span></div>
+            <div class="panel duty-panel"><div class="panel-heading"><div><h3>Komitmen hari ini</h3><p id="duty-date-heading"></p></div><span class="small-counter" id="duty-count-label">0 / 5 selesai</span></div><div id="duty-list" class="duty-list"></div></div>
+            <div class="section-heading entertainment-title"><div><div class="eyebrow">KESEIMBANGAN, BUKAN LARANGAN</div><h2>Batas hiburan</h2><p class="subtitle">Catat penggunaanmu dengan jujur. Penalti -99 poin berlaku satu kali untuk setiap batas yang dilanggar per hari.</p></div></div>
+            <div class="panel limits-panel" id="limits-panel"></div>
+          </section>
+
+          <section class="page" id="page-journal">
+            <div class="page-intro"><div class="eyebrow">TULISKAN APA YANG KAMU PELAJARI</div><h1>Catatan journey</h1><p class="subtitle">Prosesmu penting. Catat insight, tantangan, dan hal baru yang kamu coba.</p></div>
+            <div class="journal-layout"><div class="panel editor-panel"><div class="editor-toolbar"><span class="date-chip small-date" id="journal-date"></span><span class="editor-save" id="save-status">TERSIMPAN OTOMATIS</span></div><input class="journal-title" id="journal-title" maxlength="90" placeholder="Beri judul untuk perjalanan hari ini…" /><textarea id="journal-body" placeholder="Mulai dengan satu hal yang kamu pelajari hari ini...&#10;&#10;Apa yang berjalan baik? Apa yang terasa sulit? Hal baru apa yang akan kamu bawa ke hari esok?"></textarea><div class="editor-footer"><div class="tag-list" id="tag-list"><button class="tag" data-tag="coding"># coding</button><button class="tag" data-tag="bahasa"># bahasa</button><button class="tag" data-tag="insight"># insight</button><button class="tag" data-tag="pengalaman baru"># pengalaman baru</button></div><div class="word-stats"><span><b id="word-count">0</b> kata</span><span><b id="page-count">0.0</b> / 2 halaman</span></div></div><div class="detector-box"><div class="detector-header"><span>◈</span><div><strong>Estimasi keaslian tulisan</strong><small>Analisis heuristik lokal · bukan detektor AI yang definitif</small></div><span class="confidence" id="journal-confidence">—</span></div><div class="detector-track"><div id="journal-human-bar"></div></div><p id="journal-detector-note">Tulis setidaknya 80 kata untuk melihat estimasi. Ambang poin: 60% human.</p></div><button class="primary-button" id="save-journal">Simpan catatan <span>→</span></button></div>
+              <aside class="journal-aside"><div class="panel journal-goal"><span class="goal-icon">✦</span><div class="eyebrow gold">BONUS KONSISTENSI</div><h3>Dua halaman penuh</h3><p>Tulis minimal <strong>500 kata</strong> refleksi orisinal. Jika estimasi human mencapai 60%, kamu memperoleh <strong>+33 poin</strong> satu kali per hari.</p><div class="goal-progress"><div class="progress-track"><div class="progress-fill" id="journal-progress-fill"></div></div><span id="journal-goal-status">0 / 500 kata</span></div><span class="fine-print">Estimasi tulisan bersifat indikatif. Penilaian otomatis sederhana tidak dapat memastikan siapa penulis teks.</span></div><div class="panel archive-panel"><div class="panel-heading"><div><h3>Catatan sebelumnya</h3><p>Jejak refleksimu</p></div></div><div id="journal-archive"></div></div></aside></div>
+          </section>
+
+          <section class="page" id="page-projects">
+            <div class="page-intro page-intro-row"><div><div class="eyebrow">BUKTIKAN APA YANG KAMU BANGUN</div><h1>Project coding</h1><p class="subtitle">Simpan progress-mu. Setiap project yang dipublikasikan menjadi bukti perjalanan.</p></div><button class="primary-button" id="new-project">＋ Tambah project</button></div>
+            <div class="project-summary"><div><span class="metric-icon gold-icon">◇</span><div><small>PROJECT TERKUMPUL</small><strong id="project-total">0 project</strong></div></div><div><span class="metric-icon green-icon">⌘</span><div><small>TEKNOLOGI YANG DICOBA</small><strong id="tech-total">Belum ada</strong></div></div></div>
+            <div id="project-gallery" class="project-gallery"></div>
+            <div class="panel upload-hint"><span>✧</span><div><strong>Perjalanan lebih penting dari kesempurnaan.</strong><p>Bagikan GitHub link, screenshot, atau file ZIP project. Deskripsi dinilai dengan estimasi heuristik; klaim deteksi bukan keputusan pasti.</p></div></div>
+          </section>
+
+          <section class="page" id="page-history">
+            <div class="page-intro"><div class="eyebrow">LIHAT SEJAUH MANA KAMU MELANGKAH</div><h1>Riwayat & statistik</h1><p class="subtitle">Kemajuan bukan selalu garis lurus. Setiap usaha tetap tercatat.</p></div>
+            <div class="metric-grid history-metrics"><article class="metric-card"><div class="metric-top"><span>POIN BERSIH</span><span class="metric-icon gold-icon">✦</span></div><strong id="history-points">0</strong><small>Saldo poin saat ini</small></article><article class="metric-card"><div class="metric-top"><span>HARI TUNTAS</span><span class="metric-icon green-icon">✓</span></div><strong id="history-days">0</strong><small>Semua kewajiban selesai</small></article><article class="metric-card"><div class="metric-top"><span>PROJECT</span><span class="metric-icon blue-icon">◇</span></div><strong id="history-projects">0</strong><small>Project tersimpan</small></article></div>
+            <div class="history-grid"><div class="panel calendar-panel"><div class="panel-heading"><div><h3>Kalender aktivitas</h3><p>Hari saat semua kewajiban selesai</p></div><div class="calendar-controls"><button id="cal-prev" aria-label="Bulan sebelumnya">‹</button><strong id="calendar-month"></strong><button id="cal-next" aria-label="Bulan berikutnya">›</button></div></div><div class="calendar-grid" id="calendar-grid"></div><div class="calendar-legend"><span><i></i> Hari tuntas</span><span><i class="legend-today"></i> Hari ini</span></div></div><div class="panel weekly-panel"><div class="panel-heading"><div><h3>Ringkasan 7 hari</h3><p>Poin harian minggu ini</p></div></div><div class="weekly-chart" id="weekly-chart"></div></div></div>
+            <div class="section-heading"><div><div class="eyebrow">SETIAP POIN PUNYA CERITA</div><h2>Riwayat poin</h2></div></div><div class="panel points-panel" id="points-history"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="toast-region" id="toast-region" aria-live="polite"></div>
+    <dialog class="modal" id="project-modal"><form method="dialog" id="project-form"><div class="modal-head"><div><div class="eyebrow">TAMBAHKAN KE GALLERY</div><h2>Project baru</h2></div><button class="close-button" aria-label="Tutup">×</button></div><label>Judul project<input required id="project-name" maxlength="100" placeholder="Contoh: Aplikasi habit tracker" /></label><label>Deskripsi<textarea required id="project-description" minlength="30" maxlength="1400" placeholder="Ceritakan masalah, proses, dan apa yang kamu pelajari (minimal 30 karakter)."></textarea><small class="field-hint" id="project-detector-note">Estimasi human muncul setelah 80 kata.</small></label><div class="project-form-grid"><label>Teknologi<input id="project-tech" placeholder="React, TypeScript…" /></label><label>Tanggal<input type="date" id="project-date" /></label></div><label>GitHub link (opsional)<input type="url" id="project-url" placeholder="https://github.com/…" /></label><label>File project atau screenshot (opsional)<input type="file" id="project-file" accept=".zip,.png,.jpg,.jpeg,.webp,.gif,application/zip,image/*" /><small class="field-hint">File maksimal 8 MB. File disimpan di perangkat ini.</small></label><div class="detector-box compact-detector"><div class="detector-header"><span>◈</span><div><strong>Estimasi human writing</strong><small>Heuristik lokal, tidak definitif</small></div><span class="confidence" id="project-confidence">—</span></div><div class="detector-track"><div id="project-human-bar"></div></div><p id="project-detector-status">Deskripsi minimal 80 kata untuk estimasi.</p></div><div class="modal-actions"><button type="button" class="outline-button" id="cancel-project">Batal</button><button type="submit" class="primary-button" id="save-project">Simpan project <span>→</span></button></div></form></dialog>
+    <dialog class="modal profile-modal" id="profile-modal"><form method="dialog" id="profile-form"><div class="modal-head"><div><div class="eyebrow">RUANG PERSONAL</div><h2>Profil GrowthSelf</h2></div><button class="close-button" aria-label="Tutup">×</button></div><p class="subtitle">Profil disimpan lokal di browser ini; sinkronisasi akun belum dikonfigurasi.</p><label>Nama tampilan<input id="display-name" maxlength="36" placeholder="Nama panggilan" /></label><label>Email (opsional)<input type="email" id="display-email" placeholder="nama@email.com" /></label><div class="modal-actions"><button type="button" class="outline-button" id="cancel-profile">Tutup</button><button type="submit" class="primary-button">Simpan profil <span>→</span></button></div></form></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
